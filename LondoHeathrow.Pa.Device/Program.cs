@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 
-namespace LondoHeathrow.Pa.Client;
+namespace LondoHeathrow.Pa.Device;
 
 public class Program
 {
