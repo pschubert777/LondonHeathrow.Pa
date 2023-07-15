@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Device Id</th>
+            <th> Last Heartbeat </th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="devices-table-body">
+    </tbody>
+</table>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
