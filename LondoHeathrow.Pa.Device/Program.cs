@@ -10,7 +10,7 @@ public class Program
         var deviceIdentifier = Console.ReadLine();
 
         var hubConnection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:44341/pa-iot")
+            .WithUrl("https://localhost:7154/pa-iot")
             .WithAutomaticReconnect()
             .Build();
 
@@ -27,7 +27,7 @@ public class Program
 
         while (true)
         {
-            await hubConnection.InvokeAsync("RecieveHeartbeat", deviceIdentifier);
+            await hubConnection.InvokeAsync("RecieveDeviceHeartbeat", deviceIdentifier);
 
             await Task.Delay(30000);
         }
