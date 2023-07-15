@@ -39,7 +39,7 @@ const updateIotDeviceStatus = (status, deviceId) => {
 }
 
 
-connection.on("RecieveHeartbeat", (deviceId) => {
+connection.on("RecieveDeviceHearbeat", (deviceId) => {
 
     const device = devicesTableBody.querySelector(`#${deviceId}`);
 
