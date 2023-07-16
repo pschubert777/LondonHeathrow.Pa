@@ -47,7 +47,7 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapRazorPages();
-            endpoints.MapHub<PaIotHub>("/pa-iot");
+            endpoints.MapHub<PaDeviceHub>("/pa-device-hub");
         });
     }
 }

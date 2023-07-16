@@ -10,7 +10,7 @@ public class Program
         var deviceIdentifier = Console.ReadLine();
 
         var hubConnection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7154/pa-iot")
+            .WithUrl("https://localhost:7154/pa-device-hub")
             .WithAutomaticReconnect()
             .Build();
 

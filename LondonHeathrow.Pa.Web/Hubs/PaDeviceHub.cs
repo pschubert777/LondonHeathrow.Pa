@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace LondonHeathrow.Pa.Web.Hubs;
 
-public class PaIotHub: Hub<IPaIotHub>
+public class PaDeviceHub: Hub<IPaDeviceHub>
 {
     private static Dictionary<string, string> _connectionMappings = new();
 
@@ -31,14 +31,14 @@ public class PaIotHub: Hub<IPaIotHub>
 
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
-        var connectionMapping = _connectionMappings.FirstOrDefault(x => x.Key == Context.ConnectionId);
-
-        if (connectionMapping.Equals(default))
+        if (!_connectionMappings.ContainsKey(Context.ConnectionId))
         {
             return;
         }
 
-        _connectionMappings.Remove(Context.ConnectionId);
+        var connectionMapping = _connectionMappings.FirstOrDefault(x => x.Key == Context.ConnectionId);
+
+        _connectionMappings.Remove(connectionMapping.Key);
 
         await Clients.Group("Manager").RecieveDeviceDisconnected(connectionMapping.Value);
 
